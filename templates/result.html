@@ -1,0 +1,29 @@
+<!doctype html>
+<style>
+    .wrapper {
+        display: flex;
+        justify-content: center;
+    }
+    .button{
+        padding: 32px;
+    }
+</style>
+<html>
+<body>
+<div class="wrapper">
+    <h3>Continuous prediction:</h3>
+</div>
+<div class="wrapper">
+    {{result[0]}}
+</div>
+
+<form action = "http://localhost:80">
+<!-- <form action = "http://ec2-18-217-91-185.us-east-2.compute.amazonaws.com" > -->
+
+    <div class = "wrapper button">
+        <input type="submit" value="Back">
+    </div>
+</form>
+
+</body>
+</html>

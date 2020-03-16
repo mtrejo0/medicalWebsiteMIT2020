@@ -1,0 +1,185 @@
+<html>
+<style>
+    .submit{
+        padding: 32px;
+        display: flex;
+        justify-content: center;
+    }
+    h3{
+        display: flex;
+        justify-content: center;
+    }
+    input[type=number], select, textarea {
+        font-family: Facit,Calibri,Helvetica,sans-serif;
+        height: 44px;
+        padding: 0 6px;
+        border-radius: 4px;
+        line-height: 47px;
+        box-sizing: border-box;
+        color: #595959;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    input[type=number], textarea {
+        border: 1px solid #d7d7d7;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    }
+    .line{
+        display: flex;
+        padding: 16px;
+    }
+    .input{
+        padding-left: 16px;
+    }
+    .unit{
+        height: 44px;
+        padding: 0 6px;
+        border-radius: 4px;
+        line-height: 47px;
+        -ms-flex-item-align: stretch;
+        align-self: stretch;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        background-color: #f0f0f0;
+        border: 1px solid #d7d7d7;
+        box-sizing: border-box;
+    }
+    .tag{
+        width: 50%;
+    }
+    hr{
+    }
+    .wrapper{
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+    }
+    /* Responsive columns */
+    @media screen and (max-width: 600px) {
+        .wrapper{
+            width: 100%;
+        }
+    }
+    .yes_no{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+</style>
+<body>
+<!--<form action = "http://localhost:80" method = "POST" >-->
+ <form action = "http://ec2-18-217-91-185.us-east-2.compute.amazonaws.com" method = "POST">
+    <div class="wrapper">
+        <h3>
+            Risk Calculator
+        </h3>
+        <h3>
+            Result
+        </h3>
+        <h3>
+            {{ans[0]}}
+        </h3>
+        <div>
+            <hr>
+            <div class="line">
+                <label class="tag">Transvalvular flow rate</label>
+                <div class="input"><input type=number step = .0001 name="tFlow" value="{{result[0][0]}}"></div>
+                <div class="unit"> mL/s </div>
+            </div>
+            <hr>
+
+            <div class="line">
+                <label class="tag">Mean pressure gradient across aortic valve</label>
+                <div class="input"><input type=number step = .0001 name="pressure" value="{{result[0][1]}}"></div>
+                <div class="unit"> mmHg</div>
+            </div>
+            <hr>
+
+            <div class="line">
+                <label class="tag">Aortic valve area</label>
+                <div class="input"><input type=number step = .0001 name="area" value="{{result[0][2]}}"></div>
+                <div class="unit"> cm^2</div>
+            </div>
+            <hr>
+
+            <div class="line">
+                <label class="tag">Congestive heart failure (CHF) at baseline</label>
+                <div class="yes_no">
+                    <input type="radio" name="yes_no3" checked>Yes</input>
+                    <input type="radio" name="yes_no3">No</input>
+                </div>
+            </div>
+            <hr>
+
+            <div class="line">
+                <label class="tag">Myocardial infarction (MI) at baseline</label>
+                <div class="yes_no">
+                    <input type="radio" name="yes_no4" checked>Yes</input>
+                    <input type="radio" name="yes_no4">No</input>
+                </div>
+            </div>
+            <hr>
+
+            <div class="line">
+                <label class="tag">Peripheral vascular disease (PVD) at baseline</label>
+                <div class="yes_no">
+                    <input type="radio" name="yes_no5" checked>Yes</input>
+                    <input type="radio" name="yes_no5">No</input>
+                </div>
+            </div>
+            <hr>
+
+            <div class="line">
+                <label class="tag">Left ventricular segmental wall motion abnormality</label>
+                <div class="yes_no">
+                    <input type="radio" name="yes_no6" checked>Yes</input>
+                    <input type="radio" name="yes_no6">No</input>
+                </div>
+            </div>
+            <hr>
+
+            <div class="line">
+                <label class="tag">Hyperlipidemia at baseline</label>
+                <div class="yes_no">
+                    <input type="radio" name="yes_no7" checked>Yes</input>
+                    <input type="radio" name="yes_no7">No</input>
+                </div>
+            </div>
+            <hr>
+
+            <div class="line">
+                <label class="tag">Chronic kidney disease (CKD) at baseline</label>
+                <div class="yes_no">
+                    <input type="radio" name="yes_no8" checked>Yes</input>
+                    <input type="radio" name="yes_no8">No</input>
+                </div>
+            </div>
+            <hr>
+
+            <div class="line">
+                <label class="tag">Posterior wall thickness</label>
+                <div class="input"><input type=number step = .0001 name="thickness" value="{{result[0][9]}}"></div>
+                <div class="unit"> mm </div>
+            </div>
+            <hr>
+
+            <div class="line">
+                <label class="tag">Aortic sinus diameter</label>
+                <div class="input"><input type=number step = .0001 name="diameter" value="{{result[0][10]}}"></div>
+                <div class="unit"> mm </div>
+            </div>
+            <hr>
+
+
+        </div>
+
+        <div class = "submit">
+            <input type="submit" value="Submit" >
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
